@@ -1,0 +1,149 @@
+import os
+from typing import Any, Callable, List, Optional, Tuple, Union
+
+import torch
+from PIL import Image
+from PIL import ImageFile
+ImageFile.LOAD_TRUNCATED_IMAGES = True
+
+
+from ..transforms import pillow_interp_codes
+
+
+class ACDC(torch.utils.data.Dataset):
+
+    orig_dims = (1080, 1920)
+# "fog", "night", "rain", "snow"
+    def __init__(
+            self,
+            root: str,
+            stage: str = "train",
+            condition: Union[List[str], str] = [
+                "night"], 
+            load_keys: Union[List[str], str] = [
+                "image_ref", "image", "semantic"],
+            dims: Union[Tuple[int, int], List[int]] = (1080, 1920),
+            transforms: Optional[Callable] = None,
+            predict_on: Optional[str] = None,
+            **kwargs
+    ) -> None:
+        super().__init__()
+        self.root = root
+        self.dims = dims
+        self.transforms = transforms
+
+        assert stage in ["train", "val", "test", "predict"]
+        self.stage = stage
+
+        # mapping from stage to splits
+        if self.stage == 'train':
+            self.split = 'train'
+        elif self.stage == 'val':
+            self.split = 'train' 
+        elif self.stage == 'test':
+            self.split = 'val'  # test on val split val
+        elif self.stage == 'predict':
+            if not predict_on:
+                self.split = 'test'  # predict on test split
+            else:
+                self.split = predict_on
+
+        if isinstance(condition, str):
+            self.condition = [condition]
+        else:
+            self.condition = condition
+
+        if isinstance(load_keys, str):
+            self.load_keys = [load_keys]
+        else:
+            self.load_keys = load_keys
+
+        self.paths = {k: []
+                      for k in ['image', 'image_ref', 'semantic']}
+        
+        # print(self.root)
+
+        self.images_dir = os.path.join(self.root, 'rgb_anon_trainvaltest/rgb_anon')
+        self.semantic_dir = os.path.join(self.root, 'gt_trainval/gt')
+        if not os.path.isdir(self.images_dir) or not os.path.isdir(self.semantic_dir):
+            raise RuntimeError('Dataset not found or incomplete. Please make sure all required folders for the'
+                               ' specified "split" and "condition" are inside the "root" directory')
+
+        for cond in self.condition: # condition "fog", "night", "rain", "snow"
+            img_parent_dir = os.path.join(self.images_dir, cond, self.split) # /home/syf/chy/wsq/DAFormer-master/data/ACDC/rgb_anon_trainvaltest/rgb_anon, fog/night/rain/snow, train/val/test
+            semantic_parent_dir = os.path.join(
+                self.semantic_dir, cond, self.split) # /home/syf/chy/wsq/DAFormer-master/data/ACDC/gt_trainval/gt, fog/night/rain/snow, train/val/test
+            for recording in os.listdir(img_parent_dir):
+                img_dir = os.path.join(img_parent_dir, recording)
+                semantic_dir = os.path.join(semantic_parent_dir, recording)
+                for file_name in os.listdir(img_dir):
+                    for k in ['image', 'image_ref', 'semantic']:
+                        if k == 'image':
+                            file_path = os.path.join(img_dir, file_name)  # img_dir : 
+                            # if file_path == '/home/syf/chy/wsq/DAFormer-master/data/ACDC/rgb_anon_trainvaltest/rgb_anon/fog/train_ref/GOPR0475/GOPR0475_frame_000185_gt_labelIds.png':
+                            #     print(111111111111111111111111111111111111111111111111111)
+                            #     exit()
+                            #print(img_dir)
+                            #print(file_name)
+                        elif k == 'image_ref':
+                            ref_img_dir = img_dir.replace(
+                                '/'+self.split+'/', '/'+ self.split + '_ref'+'/')
+                            # print(ref_img_dir)
+                            # ref_img_dir = os.path.join()
+                            # ref_file_name = file_name.replace(
+                            #     'rgb_anon', 'rgb_ref_anon')
+                            # print(file_name)
+                            file_path = os.path.join(
+                                ref_img_dir, file_name)
+                            # if file_path == '/home/syf/chy/wsq/DAFormer-master/data/ACDC/rgb_anon_trainvaltest/rgb_anon/fog/train_ref/GOPR0475/GOPR0475_frame_000185_gt_labelIds.png':
+                            #     print(file_name)
+                            #     print(img_parent_dir)
+                            #     print(recording)
+                            #     print(2222222222222222222222222222222222222222222222)
+                            #     exit()
+                        elif k == 'semantic':
+                            #print(semantic_dir)
+                            semantic_file_name = file_name.replace(
+                                'rgb_anon.png', 'gt_labelTrainIds.png')
+                            file_path = os.path.join(
+                                semantic_dir, semantic_file_name)
+                            # if file_path == '/home/syf/chy/wsq/DAFormer-master/data/ACDC/rgb_anon_trainvaltest/rgb_anon/fog/train_ref/GOPR0475/GOPR0475_frame_000185_gt_labelIds.png':
+                            #     print(333333333333333333333333333333333333333333333333)
+                            #     exit()
+                        self.paths[k].append(file_path)
+
+    def __getitem__(self, index: int) -> Tuple[Any, Any]:
+        """
+        Args:
+            index (int): Index
+        Returns:
+            tuple: (image, target) where target is a tuple of all target types if target_type is a list with more
+            than one item. Otherwise target is a json object if target_type="polygon", else the image segmentation.
+        """
+
+        sample: Any = {}
+        sample['filename'] = self.paths['image'][index].split('/')[-1]
+
+        for k in self.load_keys:
+            if k in ['image', 'image_ref']:
+                #print(self.paths[k][index])
+                data = Image.open(self.paths[k][index]).convert('RGB')
+                if data.size != self.dims[::-1]:
+                    data = data.resize(
+                        self.dims[::-1], resample=pillow_interp_codes['bilinear'])
+            elif k == 'semantic':
+                data = Image.open(self.paths[k][index])
+                if data.size != self.dims[::-1]:
+                    data = data.resize(
+                        self.dims[::-1], resample=pillow_interp_codes['nearest'])
+            else:
+                raise ValueError('invalid load_key')
+            sample[k] = data
+
+        if self.transforms is not None:
+            sample = self.transforms(sample)
+
+        return sample
+
+    def __len__(self) -> int:
+        return len(next(iter(self.paths.values())))
