@@ -78,7 +78,7 @@ export DATA_DIR=/path/to/data/dir
 <details>
   <summary>Nighttime Driving</summary>
   
-  Please, download the NighttimeDrivingTest.zip from [here](http://data.vision.ee.ethz.ch/daid/NighttimeDriving/NighttimeDrivingTest.zip) and extract it to `$DATA_DIR/NighttimeDrivingTest`.
+  Please, download the NighttimeDrivingTest.zip from [here](http://people.ee.ethz.ch/~daid/NightDriving/) and extract it to `$DATA_DIR/NighttimeDrivingTest`.
 
 
   ```
