@@ -160,7 +160,7 @@ lr_scheduler:
     max_steps: 60000
 trainer:
   max_steps: 60000
-  resume_from_checkpoint: 
+  #resume_from_checkpoint: 
   check_val_every_n_epoch: 2000
   sync_batchnorm: True
   multiple_trainloader_mode: min_size
