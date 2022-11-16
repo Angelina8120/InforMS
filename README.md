@@ -92,28 +92,23 @@ export DATA_DIR=/path/to/data/dir
   ```
 </details>
 
-### Pretrained Models and Results
-
-We provide pretrained models.
-Note that the UAWarpC checkpoint is needed to train Refign. To avoid config file edits, save it to `./pretrained_models/`.
-To facilitate qualitative segmentation comparisons, validation set predictions of Refign can be directly downloaded. Starred models use Cityscapes pretrained weights in the backbone, the others ImageNet pretrained.
-
-#### UDA
-
-| Model         | Task           | Test Set       | Test Score    |Checkpoint    |   Predictions  |
-|---------------|----------------|-----------------|-----------------|----------------|------------|
-| Refign-DeepLabv2 | Cityscapes→ACDC | ACDC-night-test | 51.7 mIoU |  [model]() | [ACDC-night-val]() 
-| Refign-DAFormer | Cityscapes→ACDC | ACDC-night-test | 56.9 mIoU |  [model]() | [ACDC-night-val]() 
-| Refign-HRDA     | Cityscapes→ACDC | ACDC-night-test | 65.1 mIoU |  [model]() | [ACDC-night-test]()
-| Refign-HRDA     | Cityscapes→ACDC | ACDC-night-val | 55.4 mIoU |  [model]() | [ACDC-night-val]()
-|||||||
-| Refign-DeepLabv2 | Cityscapes→Dark Zurich | Dark Zurich-test | 55.0 mIoU |  [model]() | [Dark Zurich-val]() 
-| Refign-DAFormer | Cityscapes→Dark Zurich | Dark Zurich-test | 57.7 mIoU |  [model]() | [Dark Zurich-val]() 
-| Refign-HRDA     | Cityscapes→Dark Zurich | Dark Zurich-test | 63.4 mIoU |  [model]() | [Dark Zurich-test]()
-| Refign-HRDA     | Cityscapes→Dark Zurich | Dark Zurich-val | 52.5 mIoU |  [model]() | [Dark Zurich-val]()
-
 ## Training
 Awaiting soon...
 
 ## Testing
 Awaiting soon...
+
+## Results
+To facilitate qualitative segmentation comparisons, validation set predictions of InforMS can be directly downloaded.
+
+| Model         | Task           | Test Set       | Test Score    | Predictions  |
+|---------------|----------------|-----------------|-----------------|------------|
+| Refign-DeepLabv2 | Cityscapes→ACDC | ACDC-night-test | 51.7 mIoU | [ACDC-night-val]() 
+| Refign-DAFormer | Cityscapes→ACDC | ACDC-night-test | 56.9 mIoU |  [ACDC-night-val]() 
+| Refign-HRDA     | Cityscapes→ACDC | ACDC-night-test | 65.1 mIoU |  [ACDC-night-test]()
+| Refign-HRDA     | Cityscapes→ACDC | ACDC-night-val | 55.4 mIoU | [ACDC-night-val]()
+|||||||
+| Refign-DeepLabv2 | Cityscapes→Dark Zurich | Dark Zurich-test | 55.0 mIoU |  [Dark Zurich-val]() 
+| Refign-DAFormer | Cityscapes→Dark Zurich | Dark Zurich-test | 57.7 mIoU |  [Dark Zurich-val]() 
+| Refign-HRDA     | Cityscapes→Dark Zurich | Dark Zurich-test | 63.4 mIoU |   [Dark Zurich-test]()
+| Refign-HRDA     | Cityscapes→Dark Zurich | Dark Zurich-val | 52.5 mIoU |  [Dark Zurich-val]()
