@@ -69,47 +69,28 @@ class ACDC(torch.utils.data.Dataset):
             raise RuntimeError('Dataset not found or incomplete. Please make sure all required folders for the'
                                ' specified "split" and "condition" are inside the "root" directory')
 
-        for cond in self.condition: # condition "fog", "night", "rain", "snow"
-            img_parent_dir = os.path.join(self.images_dir, cond, self.split) # /home/syf/chy/wsq/DAFormer-master/data/ACDC/rgb_anon_trainvaltest/rgb_anon, fog/night/rain/snow, train/val/test
+        for cond in self.condition: 
+            img_parent_dir = os.path.join(self.images_dir, cond, self.split) 
             semantic_parent_dir = os.path.join(
-                self.semantic_dir, cond, self.split) # /home/syf/chy/wsq/DAFormer-master/data/ACDC/gt_trainval/gt, fog/night/rain/snow, train/val/test
+                self.semantic_dir, cond, self.split) 
             for recording in os.listdir(img_parent_dir):
                 img_dir = os.path.join(img_parent_dir, recording)
                 semantic_dir = os.path.join(semantic_parent_dir, recording)
                 for file_name in os.listdir(img_dir):
                     for k in ['image', 'image_ref', 'semantic']:
                         if k == 'image':
-                            file_path = os.path.join(img_dir, file_name)  # img_dir : 
-                            # if file_path == '/home/syf/chy/wsq/DAFormer-master/data/ACDC/rgb_anon_trainvaltest/rgb_anon/fog/train_ref/GOPR0475/GOPR0475_frame_000185_gt_labelIds.png':
-                            #     print(111111111111111111111111111111111111111111111111111)
-                            #     exit()
-                            #print(img_dir)
-                            #print(file_name)
+                            file_path = os.path.join(img_dir, file_name)
                         elif k == 'image_ref':
                             ref_img_dir = img_dir.replace(
                                 '/'+self.split+'/', '/'+ self.split + '_ref'+'/')
-                            # print(ref_img_dir)
-                            # ref_img_dir = os.path.join()
-                            # ref_file_name = file_name.replace(
-                            #     'rgb_anon', 'rgb_ref_anon')
-                            # print(file_name)
                             file_path = os.path.join(
                                 ref_img_dir, file_name)
-                            # if file_path == '/home/syf/chy/wsq/DAFormer-master/data/ACDC/rgb_anon_trainvaltest/rgb_anon/fog/train_ref/GOPR0475/GOPR0475_frame_000185_gt_labelIds.png':
-                            #     print(file_name)
-                            #     print(img_parent_dir)
-                            #     print(recording)
-                            #     print(2222222222222222222222222222222222222222222222)
-                            #     exit()
                         elif k == 'semantic':
                             #print(semantic_dir)
                             semantic_file_name = file_name.replace(
                                 'rgb_anon.png', 'gt_labelTrainIds.png')
                             file_path = os.path.join(
                                 semantic_dir, semantic_file_name)
-                            # if file_path == '/home/syf/chy/wsq/DAFormer-master/data/ACDC/rgb_anon_trainvaltest/rgb_anon/fog/train_ref/GOPR0475/GOPR0475_frame_000185_gt_labelIds.png':
-                            #     print(333333333333333333333333333333333333333333333333)
-                            #     exit()
                         self.paths[k].append(file_path)
 
     def __getitem__(self, index: int) -> Tuple[Any, Any]:
