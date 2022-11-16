@@ -99,16 +99,20 @@ Awaiting soon...
 Awaiting soon...
 
 ## Results
-To facilitate qualitative segmentation comparisons, validation set predictions of InforMS can be directly downloaded.
+To facilitate qualitative segmentation comparisons, validation set and testing set predictions of InforMS can be directly downloaded.
 
 | Model         | Task           | Test Set       | Test Score    | Predictions  |
 |---------------|----------------|-----------------|-----------------|------------|
-| Refign-DeepLabv2 | Cityscapes→ACDC | ACDC-night-test | 51.7 mIoU | [ACDC-night-val]() 
-| Refign-DAFormer | Cityscapes→ACDC | ACDC-night-test | 56.9 mIoU |  [ACDC-night-val]() 
+| Refign-DeepLabv2 | Cityscapes→ACDC | ACDC-night-test | 51.7 mIoU | [ACDC-night-test]() 
+| Refign-DeepLabv2 | Cityscapes→ACDC | ACDC-night-val | 42.9 mIoU | [ACDC-night-val]() 
+| Refign-DAFormer | Cityscapes→ACDC | ACDC-night-test | 56.9 mIoU |  [ACDC-night-test]() 
+| Refign-DAFormer | Cityscapes→ACDC | ACDC-night-val | 47.7 mIoU |  [ACDC-night-val]() 
 | Refign-HRDA     | Cityscapes→ACDC | ACDC-night-test | 65.1 mIoU |  [ACDC-night-test]()
 | Refign-HRDA     | Cityscapes→ACDC | ACDC-night-val | 55.4 mIoU | [ACDC-night-val]()
 |||||||
-| Refign-DeepLabv2 | Cityscapes→Dark Zurich | Dark Zurich-test | 55.0 mIoU |  [Dark Zurich-val]() 
-| Refign-DAFormer | Cityscapes→Dark Zurich | Dark Zurich-test | 57.7 mIoU |  [Dark Zurich-val]() 
+| Refign-DeepLabv2 | Cityscapes→Dark Zurich | Dark Zurich-test | 55.0 mIoU |  [Dark Zurich-test]() 
+| Refign-DeepLabv2 | Cityscapes→Dark Zurich | Dark Zurich-val | 40.0 mIoU |  [Dark Zurich-val]() 
+| Refign-DAFormer | Cityscapes→Dark Zurich | Dark Zurich-test | 57.7 mIoU |  [Dark Zurich-test]() 
+| Refign-DAFormer | Cityscapes→Dark Zurich | Dark Zurich-val | 42.7 mIoU |  [Dark Zurich-val]() 
 | Refign-HRDA     | Cityscapes→Dark Zurich | Dark Zurich-test | 63.4 mIoU |   [Dark Zurich-test]()
 | Refign-HRDA     | Cityscapes→Dark Zurich | Dark Zurich-val | 52.5 mIoU |  [Dark Zurich-val]()
