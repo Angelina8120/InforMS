@@ -93,22 +93,22 @@ export DATA_DIR=/path/to/data/dir
 </details>
 
 ## Training
-Awaiting soon...
+Training code will be available upon acceptance of our manuscript.
 
 ## Testing
-Awaiting soon...
+Testing code will be available upon acceptance of our manuscript.
 
 ## Results
 To facilitate qualitative segmentation comparisons, validation set and testing set predictions of InforMS can be directly downloaded.
 
 | Model         | Task           | Test Set       | Test Score    | Predictions  |
 |---------------|----------------|-----------------|-----------------|------------|
-| InforMS-DeepLabv2 | Cityscapes→ACDC | ACDC-night-test | 51.7 mIoU | [ACDC-night-test](https://drive.google.com/file/d/1NcRK41NuiRWvllHbVxzENPFIv3Da2npr/view?usp=share_link) 
-| InforMS-DeepLabv2 | Cityscapes→ACDC | ACDC-night-val | 42.9 mIoU | [ACDC-night-val](https://drive.google.com/file/d/1R4njeMDgMZVQBFxRfxbFjd5EPxttq6iT/view?usp=share_link) 
-| InforMS-DAFormer | Cityscapes→ACDC | ACDC-night-test | 56.9 mIoU |  [ACDC-night-test](https://drive.google.com/file/d/16fo7soGtaNZUgIlkhvoDYuDAbGhUMjWh/view?usp=share_link) 
-| InforMS-DAFormer | Cityscapes→ACDC | ACDC-night-val | 47.7 mIoU |  [ACDC-night-val](https://drive.google.com/file/d/1IuxaR1iTTaNyZKroxi6Nj_QxYicCeOp-/view?usp=share_link) 
-| InforMS-HRDA     | Cityscapes→ACDC | ACDC-night-test | 65.1 mIoU |  [ACDC-night-test](https://drive.google.com/file/d/1X04iT1bv2DxhcQnsrg8UvlUP1kVkhcX2/view?usp=share_link)
-| InforMS-HRDA     | Cityscapes→ACDC | ACDC-night-val | 55.4 mIoU | [ACDC-night-val](https://drive.google.com/file/d/1tGo0nsQGAnfBKjMLdH-96sdTHggmRxNo/view?usp=share_link)
+| InforMS-DeepLabv2 | Cityscapes→ACDC-night | ACDC-night-test | 51.7 mIoU | [ACDC-night-test](https://drive.google.com/file/d/1NcRK41NuiRWvllHbVxzENPFIv3Da2npr/view?usp=share_link) 
+| InforMS-DeepLabv2 | Cityscapes→ACDC-night | ACDC-night-val | 42.9 mIoU | [ACDC-night-val](https://drive.google.com/file/d/1R4njeMDgMZVQBFxRfxbFjd5EPxttq6iT/view?usp=share_link) 
+| InforMS-DAFormer | Cityscapes→ACDC-night | ACDC-night-test | 56.9 mIoU |  [ACDC-night-test](https://drive.google.com/file/d/16fo7soGtaNZUgIlkhvoDYuDAbGhUMjWh/view?usp=share_link) 
+| InforMS-DAFormer | Cityscapes→ACDC-night | ACDC-night-val | 47.7 mIoU |  [ACDC-night-val](https://drive.google.com/file/d/1IuxaR1iTTaNyZKroxi6Nj_QxYicCeOp-/view?usp=share_link) 
+| InforMS-HRDA     | Cityscapes→ACDC-night | ACDC-night-test | 65.1 mIoU |  [ACDC-night-test](https://drive.google.com/file/d/1X04iT1bv2DxhcQnsrg8UvlUP1kVkhcX2/view?usp=share_link)
+| InforMS-HRDA     | Cityscapes→ACDC-night | ACDC-night-val | 55.4 mIoU | [ACDC-night-val](https://drive.google.com/file/d/1tGo0nsQGAnfBKjMLdH-96sdTHggmRxNo/view?usp=share_link)
 |||||||
 | InforMS-DeepLabv2 | Cityscapes→Dark Zurich | Dark Zurich-test | 55.0 mIoU |  [Dark Zurich-test](https://drive.google.com/file/d/1Vst6d_uXXjb0Iu2wPJhYlUS94DrfhnKn/view?usp=share_link) 
 | InforMS-DeepLabv2 | Cityscapes→Dark Zurich | Dark Zurich-val | 40.0 mIoU |  [Dark Zurich-val](https://drive.google.com/file/d/1sMBRgnPnwMFn8b2JZjw0buHCxPA6nD39/view?usp=share_link) 
