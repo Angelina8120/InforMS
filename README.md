@@ -116,17 +116,4 @@ To facilitate qualitative segmentation comparisons, validation set predictions o
 Awaiting soon...
 
 ## Testing
-As mentioned in the previous section, modify the corresponding config file by adding the UAWarpC model path.
-To evaluate InforMS e.g. on the ACDC validation set, use the following command:
-
-```bash
-python tools/run.py test --config configs/cityscapes_acdc/refign_hrda_star.yaml --ckpt_path /path/to/trained/model --trainer.gpus 1
-```
-
-We also provide pretrained models, which can be downloaded from the link above. To evaluate them, simply provide them as the argument `--ckpt_path`.
-
-To get test set scores for ACDC and DarkZurich, predictions are evaluated on the respective evaluation servers: [ACDC](https://acdc.vision.ee.ethz.ch/submit) and [DarkZurich](https://codalab.lisn.upsaclay.fr/competitions/3783).
-To create and save test predictions for e.g. ACDC, use this command:
-```bash
-python tools/run.py predict --config configs/cityscapes_acdc/refign_hrda_star.yaml --ckpt_path /path/to/trained/model --trainer.gpus 1
-```
+Awaiting soon...
