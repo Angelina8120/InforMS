@@ -103,8 +103,8 @@ To facilitate qualitative segmentation comparisons, validation set and testing s
 
 | Model         | Task           | Test Set       | Test Score    | Predictions  |
 |---------------|----------------|-----------------|-----------------|------------|
-| InforMS-DeepLabv2 | Cityscapes→ACDC-night | ACDC-night-test | 52.4% mIoU | [ACDC-night-test]() 
-| InforMS-DeepLabv2 | Cityscapes→ACDC-night | ACDC-night-val | 44.0% mIoU | [ACDC-night-val]() 
+| InforMS-DeepLabv2 | Cityscapes→ACDC-night | ACDC-night-test | 52.4% mIoU | [ACDC-night-test](https://drive.google.com/file/d/1GRwIjnFB4OrRESfhfLWv5H2at-ApRZWS/view?usp=share_link) 
+| InforMS-DeepLabv2 | Cityscapes→ACDC-night | ACDC-night-val | 44.0% mIoU | [ACDC-night-val](https://drive.google.com/file/d/15J6DZtD7aE61pIFdb24nS_lhOdCzroHl/view?usp=share_link) 
 | InforMS-DAFormer | Cityscapes→ACDC-night | ACDC-night-test | 56.9% mIoU |  [ACDC-night-test](https://drive.google.com/file/d/16fo7soGtaNZUgIlkhvoDYuDAbGhUMjWh/view?usp=share_link) 
 | InforMS-DAFormer | Cityscapes→ACDC-night | ACDC-night-val | 47.7% mIoU |  [ACDC-night-val](https://drive.google.com/file/d/1IuxaR1iTTaNyZKroxi6Nj_QxYicCeOp-/view?usp=share_link) 
 | InforMS-HRDA     | Cityscapes→ACDC-night | ACDC-night-test | 65.1% mIoU |  [ACDC-night-test](https://drive.google.com/file/d/1X04iT1bv2DxhcQnsrg8UvlUP1kVkhcX2/view?usp=share_link)
