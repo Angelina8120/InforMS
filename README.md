@@ -103,8 +103,8 @@ To facilitate qualitative segmentation comparisons, validation set and testing s
 
 | Model         | Task           | Test Set       | Test Score    | Predictions  |
 |---------------|----------------|-----------------|-----------------|------------|
-| InforMS-DeepLabv2 | Cityscapes→ACDC-night | ACDC-night-test | 51.7 mIoU | [ACDC-night-test](https://drive.google.com/file/d/1NcRK41NuiRWvllHbVxzENPFIv3Da2npr/view?usp=share_link) 
-| InforMS-DeepLabv2 | Cityscapes→ACDC-night | ACDC-night-val | 42.9 mIoU | [ACDC-night-val](https://drive.google.com/file/d/1R4njeMDgMZVQBFxRfxbFjd5EPxttq6iT/view?usp=share_link) 
+| InforMS-DeepLabv2 | Cityscapes→ACDC-night | ACDC-night-test | 52.4 mIoU | [ACDC-night-test]() 
+| InforMS-DeepLabv2 | Cityscapes→ACDC-night | ACDC-night-val | 44.0 mIoU | [ACDC-night-val]() 
 | InforMS-DAFormer | Cityscapes→ACDC-night | ACDC-night-test | 56.9 mIoU |  [ACDC-night-test](https://drive.google.com/file/d/16fo7soGtaNZUgIlkhvoDYuDAbGhUMjWh/view?usp=share_link) 
 | InforMS-DAFormer | Cityscapes→ACDC-night | ACDC-night-val | 47.7 mIoU |  [ACDC-night-val](https://drive.google.com/file/d/1IuxaR1iTTaNyZKroxi6Nj_QxYicCeOp-/view?usp=share_link) 
 | InforMS-HRDA     | Cityscapes→ACDC-night | ACDC-night-test | 65.1 mIoU |  [ACDC-night-test](https://drive.google.com/file/d/1X04iT1bv2DxhcQnsrg8UvlUP1kVkhcX2/view?usp=share_link)
@@ -114,5 +114,5 @@ To facilitate qualitative segmentation comparisons, validation set and testing s
 | InforMS-DeepLabv2 | Cityscapes→Dark Zurich | Dark Zurich-val | 40.0 mIoU |  [Dark Zurich-val](https://drive.google.com/file/d/1sMBRgnPnwMFn8b2JZjw0buHCxPA6nD39/view?usp=share_link) 
 | InforMS-DAFormer | Cityscapes→Dark Zurich | Dark Zurich-test | 57.7 mIoU |  [Dark Zurich-test](https://drive.google.com/file/d/126B69O1DjTwIIbbJBeZTjsLaJfdcyz6x/view?usp=share_link) 
 | InforMS-DAFormer | Cityscapes→Dark Zurich | Dark Zurich-val | 42.7 mIoU |  [Dark Zurich-val](https://drive.google.com/file/d/1lHvMruDDmuOoDjlh8-BDGy0tu-CR-MUO/view?usp=share_link) 
-| InforMS-HRDA     | Cityscapes→Dark Zurich | Dark Zurich-test | 63.4 mIoU |   [Dark Zurich-test](https://drive.google.com/file/d/1OIp0P2PtBKD6JVpfuPQUHHbHHgKmznKt/view?usp=share_link)
+| InforMS-HRDA     | Cityscapes→Dark Zurich | Dark Zurich-test | 64.7 mIoU |   [Dark Zurich-test]()
 | InforMS-HRDA     | Cityscapes→Dark Zurich | Dark Zurich-val | 52.5 mIoU |  [Dark Zurich-val](https://drive.google.com/file/d/16s-j6xHeAPaOIEDHISIElYayCHRvpDDh/view?usp=sharing)
