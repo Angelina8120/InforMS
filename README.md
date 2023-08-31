@@ -1,4 +1,4 @@
-# Informative Classes Matter: Towards Unsupervised Domain Adaptive Nighttime Semantic Segmentation
+# Informative Classes Matter: Towards Unsupervised Domain Adaptive Nighttime Semantic Segmentation, ACM MM 2023
 
 ## Setup Environment
 The code is run with Python 3.8.13. To install the packages, use:
@@ -93,10 +93,10 @@ export DATA_DIR=/path/to/data/dir
 </details>
 
 ## Training
-Training code will be available upon acceptance of our manuscript.
+Coming soon
 
 ## Testing
-Testing code will be available upon acceptance of our manuscript.
+Coming soon
 
 ## Results
 To facilitate qualitative segmentation comparisons, validation set and testing set predictions of InforMS can be directly downloaded.
